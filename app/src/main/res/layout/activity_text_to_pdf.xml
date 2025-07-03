@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/editor_gradient_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- App Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rich Text Editor"
+        android:textColor="@color/primaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Formatting Toolbar Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="12dp">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:paddingVertical="8dp">
+
+            <!-- Vertical LinearLayout to hold two horizontal rows -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp">
+
+                <!-- First row of buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="4dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBold"
+                        style="@style/FormatButtonStyle"
+                        android:text="B"
+                        android:textStyle="bold"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnItalic"
+                        style="@style/FormatButtonStyle"
+                        android:text="I"
+                        android:textStyle="italic"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUnderline"
+                        style="@style/FormatButtonStyle"
+                        android:text="U"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnColorPicker"
+                        style="@style/FormatButtonStyle"
+                        android:text="Color"
+                        app:icon="@drawable/ic_color"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFontSize"
+                        style="@style/FormatButtonStyle"
+                        android:text="A+"
+                        app:iconTint="@color/primaryDark"/>
+
+                </LinearLayout>
+
+                <!-- Second row of buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTextSizeDown"
+                        style="@style/FormatButtonStyle"
+                        android:text="A-"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAlignLeft"
+                        style="@style/FormatButtonStyle"
+                        app:icon="@drawable/al_left"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAlignCenter"
+                        style="@style/FormatButtonStyle"
+                        app:icon="@drawable/al_center"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAlignRight"
+                        style="@style/FormatButtonStyle"
+                        app:icon="@drawable/al_right"
+                        app:iconTint="@color/primaryDark"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnInsertImage"
+                        style="@style/FormatButtonStyle"
+                        android:text="Image"
+                        app:icon="@drawable/ic_gallery"
+                        app:iconTint="@color/primaryDark"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Editor Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="12dp">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:textColor="#333333"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:scrollbars="vertical"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbarStyle="insideInset"
+            android:textIsSelectable="true"
+            android:hint="Type your content here..."/>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Generate PDF Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGeneratePdf"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Generate PDF"
+        android:textColor="@color/white"
+        app:icon="@drawable/ic_pdf"
+        app:iconTint="@color/white"
+        app:backgroundTint="@color/primaryDark"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

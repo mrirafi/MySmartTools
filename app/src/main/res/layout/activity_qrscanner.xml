@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Camera Preview -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:layout_marginBottom="12dp">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Overlay for scanning guidance -->
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_scan_frame"
+            android:contentDescription="Scan frame"
+            app:tint="#40FFFFFF" />
+    </FrameLayout>
+
+    <!-- Scan Type Selector -->
+    <RadioGroup
+        android:id="@+id/scanTypeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioQR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR Code"
+            android:checked="true"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:id="@+id/radioBarcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barcode"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="24dp" />
+    </RadioGroup>
+
+    <!-- Scan Result Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/textResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btnCopy"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingEnd="12dp"
+                android:text="Scan result will appear here"
+                android:textColor="#263238"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"/>
+
+            <ImageView
+                android:id="@+id/btnCopy"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_copy_text"
+                android:contentDescription="Copy text"
+                android:layout_marginEnd="8dp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/btnCopy"
+        android:paddingStart="20dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="20dp"
+        android:paddingEnd="12dp"
+        android:text="Click to open or Copy"
+        android:textColor="#ADADAD"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"/>
+
+
+    <!-- Pick Image Button -->
+    <Button
+        android:id="@+id/btnScanAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan Again"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/primaryDark"
+        android:textColor="@android:color/white" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFlash"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Flash"
+            app:icon="@drawable/ic_flash_off"
+            app:iconTint="@color/white"
+            android:layout_marginEnd="8dp"
+            app:backgroundTint="@color/primaryDark" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickImage"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Pick Image"
+            app:icon="@drawable/ic_gallery"
+            app:iconTint="@color/white"
+            app:backgroundTint="@color/primaryDark" />
+    </LinearLayout>
+
+</LinearLayout>

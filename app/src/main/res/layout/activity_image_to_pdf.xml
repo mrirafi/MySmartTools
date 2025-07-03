@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_light_blue"
+    android:padding="20dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image to PDF Converter"
+        android:textColor="@color/primaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Pick Images Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_pick_images"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/title_text"
+        android:text="Select Images"
+        android:textSize="16sp"
+        app:icon="@drawable/ic_gallery"
+        app:iconTint="@color/white"
+        app:backgroundTint="@color/primaryDark"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/primaryLight"
+        app:strokeWidth="1dp"/>
+
+    <!-- Images Preview RecyclerView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_preview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/btn_pick_images"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_images"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="4dp"
+            tools:listitem="@layout/item_image_preview"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- File Name Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/file_name_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_preview"
+        android:layout_marginTop="16dp"
+        android:hint="PDF File Name"
+        app:boxStrokeColor="@color/primaryDark"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_file_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:maxLines="1"
+            android:padding="16dp"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Create PDF Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_pdf"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/file_name_container"
+        android:layout_marginTop="16dp"
+        android:text="Create PDF"
+        android:textColor="@color/primaryLight"
+        android:textSize="16sp"
+        app:backgroundTint="@color/primaryDark"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_pdf"
+        app:iconTint="@color/white"
+        android:enabled="false"/>
+
+    <!-- Progress Bar -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/btn_create_pdf"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:indicatorColor="@color/primaryDark"
+        app:trackColor="@color/primaryLight"
+        app:trackCornerRadius="4dp"/>
+
+</RelativeLayout>
