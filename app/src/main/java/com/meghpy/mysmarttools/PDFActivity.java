@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PDFActivity extends AppCompatActivity {
 
-    LinearLayout textToPdf,imageToPdf, excelToPdf, wordToPdf;
+    LinearLayout textToPdf,imageToPdf, excelToPdf, wordToPdf, passwordProtect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class PDFActivity extends AppCompatActivity {
         imageToPdf = findViewById(R.id.imageToPdf);
         excelToPdf = findViewById(R.id.excelToPdf);
         wordToPdf = findViewById(R.id.wordToPdf);
+        passwordProtect = findViewById(R.id.passwordProtect);
 
         textToPdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,13 @@ public class PDFActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PDFActivity.this, WordToPdf.class));
+            }
+        });
+
+        passwordProtect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PDFActivity.this, ProtectPdf.class));
             }
         });
 

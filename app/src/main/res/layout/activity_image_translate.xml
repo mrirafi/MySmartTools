@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select an image to translate"
+        android:textSize="18sp"
+        android:textColor="@color/primaryDark"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:background="#EEEEEE"
+        android:adjustViewBounds="true"
+        android:contentDescription="Image preview"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <Spinner
+            android:id="@+id/spinnerSourceLang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            android:padding="8dp"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTargetLang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextEditorButtonStyle.Outlined"
+        android:text="Select Image"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/primaryDark"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        android:layout_marginBottom="12dp">
+
+    <Button
+        android:id="@+id/btnSaveImage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Image"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/primaryDark"
+        android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnToggleTranslation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hide Translation"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/primaryDark"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
+
+    <!-- ✅ ProgressBar (centered) -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- ✅ Text status message -->
+    <TextView
+        android:id="@+id/textDownloadStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Downloading..."
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
