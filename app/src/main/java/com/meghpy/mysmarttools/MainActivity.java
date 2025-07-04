@@ -8,7 +8,7 @@ import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView cardOCR, cardPDF, cardQR, cardTranslate;;
+    CardView cardOCR, cardPDF, cardQR, cardTranslate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
