@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/editor_gradient_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- App Header with Page Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PDF Editor Pro"
+            android:textColor="@color/primaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <!-- Compact Page Management -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+            <ImageButton
+                android:id="@+id/btnOpenPdf"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_photo_library"
+                android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Add page"
+                app:tint="@color/primaryDark" />
+
+
+            <ImageButton
+                android:id="@+id/btnAddPage"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_add"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Add page"
+                app:tint="@color/primaryDark" />
+
+            <ImageButton
+                android:id="@+id/btnRemovePage"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_remove"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Remove page"
+                android:layout_marginStart="4dp"
+                app:tint="@color/primaryDark" />
+
+            <TextView
+                android:id="@+id/tvPageInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/1"
+                android:textColor="@color/primaryDark"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- PDF Tools Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:paddingVertical="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <!-- Text Tools -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnText"
+                    style="@style/FormatButtonStyle"
+                    android:text="Text"
+                    app:icon="@drawable/ic_text"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTextIncrease"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_increase"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTextDecrease"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_decrease"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <!-- Media Tools -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddPhoto"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_gallery"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <!-- Annotation Tools -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHighlight"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_highlight"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDraw"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_draw"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEraser"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_erase"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+
+                <!-- More Tools -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMoreTools"
+                    style="@style/FormatButtonStyle"
+                    app:icon="@drawable/ic_moreapp"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/primaryDark"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Swipeable PDF Preview Area -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp">
+
+        <FrameLayout
+            android:id="@+id/pdfFrameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pdfViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                 />
+
+        </FrameLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUndo"
+            style="@style/FormatButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:icon="@drawable/ic_undo"
+            app:iconSize="20dp"
+            app:iconTint="@color/primaryDark"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRedo"
+            style="@style/FormatButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:icon="@drawable/ic_redo"
+            app:iconSize="20dp"
+            app:iconTint="@color/primaryDark"
+            android:layout_marginStart="8dp"/>
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            app:iconSize="20dp"
+            app:iconTint="@color/white"
+            app:backgroundTint="@color/primaryDark"
+            app:cornerRadius="24dp"
+            android:layout_marginStart="8dp"/>
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSavePdf"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Download"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_save"
+            app:iconSize="20dp"
+            app:iconTint="@color/white"
+            app:backgroundTint="@color/primaryDark"
+            app:cornerRadius="24dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PDFActivity extends AppCompatActivity {
 
-    LinearLayout textToPdf,imageToPdf, excelToPdf, wordToPdf, passwordProtect;
+    LinearLayout textToPdf,imageToPdf, excelToPdf, wordToPdf, passwordProtect, editPdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class PDFActivity extends AppCompatActivity {
         excelToPdf = findViewById(R.id.excelToPdf);
         wordToPdf = findViewById(R.id.wordToPdf);
         passwordProtect = findViewById(R.id.passwordProtect);
+        editPdf = findViewById(R.id.editPdf);
 
         textToPdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,12 @@ public class PDFActivity extends AppCompatActivity {
             }
         });
 
+        editPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PDFActivity.this, EditPdf.class));
+            }
+        });
 
 
     }

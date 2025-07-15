@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Smart Tools</string>
+
+    <string name="page_info_format">%1$d/%2$d</string>
+    <string name="page_info_empty">No PDF Loaded</string>
+
 </resources>
