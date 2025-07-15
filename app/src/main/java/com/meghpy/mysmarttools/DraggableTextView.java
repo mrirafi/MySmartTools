@@ -9,7 +9,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class DraggableTextView extends androidx.appcompat.widget.AppCompatTextView {
 
